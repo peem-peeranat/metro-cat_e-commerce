@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography, CircularProgress } from '@mui/material';
+import { Box, Typography, CircularProgress, useMediaQuery, useTheme } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 
 const OrderSuccessPage = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // เมื่อโหลดหน้านี้ จะ redirect กลับหน้าแรกหลังจาก 2 วินาที
   useEffect(() => {
@@ -23,7 +25,7 @@ const OrderSuccessPage = () => {
       justifyContent="center"
       gap={3}
       sx={{
-        padding: '48px',
+        padding: '24px',
         margin: '20px',
       }}
     >
@@ -65,6 +67,7 @@ const OrderSuccessPage = () => {
         fontWeight={700}
         color="#212327"
         sx={{
+          fontSize: isMobile ? '25px' : '48px',
           textShadow: '0 2px 4px rgba(33, 35, 39, 0.05)',
           letterSpacing: '0.8px',
           marginTop: '16px',
@@ -127,7 +130,7 @@ const OrderSuccessPage = () => {
       >
         Redirecting...
       </Typography>
-    </Box>
+    </Box >
   );
 };
 
