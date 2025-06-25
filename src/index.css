@@ -1,13 +1,19 @@
-body {
+body,
+html,
+#root,
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', 'Noto Sans Thai', Arial, sans-serif !important;
+  /* เพิ่ม !important เพื่อบังคับ override ทุกที่ */
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:lang(th),
+[lang="th"] {
+  font-family: 'Noto Sans Thai', 'Montserrat', Arial, sans-serif !important;
 }
