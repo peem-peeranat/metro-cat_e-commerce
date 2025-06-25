@@ -69,6 +69,12 @@ const Home = () => {
             setTotalProducts(products.length);
             setMobileHasMore(false);
             setPage(1);
+            setTimeout(() => {
+              const el = document.getElementById('home-content');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              // เคลียร์ location.state หลังใช้เสร็จ
+              window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+            }, 100);
           } else {
             // โหลดสินค้าหน้าแรกสำหรับ mobile
             const skip = 0;
@@ -92,6 +98,12 @@ const Home = () => {
             setSearchTerm(location.state.searchTerm || '');
             setTotalProducts(products.length);
             setPage(1);
+            setTimeout(() => {
+              const el = document.getElementById('home-content');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              // เคลียร์ location.state หลังใช้เสร็จ
+              window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+            }, 100);
           } else {
             // โหลดสินค้าทั้งหมด (limit 1000)
             const data = await fetchProducts(category, 1000, 0);
@@ -265,7 +277,7 @@ const Home = () => {
               }}
             >
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>ตัวกรองสินค้า</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Product filter</Typography>
                 <IconButton onClick={() => setMobileFilterOpen(false)}>
                   <CloseIcon />
                 </IconButton>
